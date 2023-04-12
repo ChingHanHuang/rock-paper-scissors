@@ -1,5 +1,12 @@
 const choices = ["rock", "paper", "scissors"];
 
+function getPlayerChoice() {
+    let playerChoice = prompt("Rock, Paper, Scissors?").toLowerCase();
+    if(choices.includes(playerChoice))
+        return playerChoice;
+    throw "Please choose again.";
+}
+
 function getComputerChoice() {
     return choices[Math.floor(Math.random() * choices.length)];
 }
@@ -28,11 +35,18 @@ function playRound(playerSelection, computerSelection) {
 function game() {
     let rounds = 5;
     while(rounds > 0) {
-        const playerSelection = "rock";
+        let playerSelection;
+        try {
+            playerSelection = getPlayerChoice();
+        } catch(err) {
+            alert(err);
+            continue;
+        }
+        
         const computerSelection = getComputerChoice();
 
         console.log(rounds + ", " + playerSelection + ", " + computerSelection);
-        console.log(playRound(playerSelection, computerSelection));
+        console.log(playRound(playerSelection.toLowerCase(), computerSelection));
         rounds--;
     }
 }
