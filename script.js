@@ -1,14 +1,14 @@
-const choices = ["rock", "paper", "scissors"];
+const CHOICES = ["rock", "paper", "scissors"];
 
 function getPlayerChoice() {
     let playerChoice = prompt("Rock, Paper, Scissors?").toLowerCase();
-    if(choices.includes(playerChoice))
+    if(CHOICES.includes(playerChoice))
         return playerChoice;
     throw "Please choose again.";
 }
 
 function getComputerChoice() {
-    return choices[Math.floor(Math.random() * choices.length)];
+    return CHOICES[Math.floor(Math.random() * CHOICES.length)];
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -35,20 +35,20 @@ function playRound(playerSelection, computerSelection) {
 function game() {
     let rounds = 5;
     while(rounds > 0) {
-        let playerSelection;
         try {
-            playerSelection = getPlayerChoice();
+            let playerSelection = getPlayerChoice();
+            let computerSelection = getComputerChoice();
+
+            console.log(rounds + ", " + playerSelection + ", " + computerSelection);
+            console.log(playRound(playerSelection.toLowerCase(), computerSelection));
+            rounds--;
+
         } catch(err) {
             alert(err);
             continue;
         }
-        
-        const computerSelection = getComputerChoice();
-
-        console.log(rounds + ", " + playerSelection + ", " + computerSelection);
-        console.log(playRound(playerSelection.toLowerCase(), computerSelection));
-        rounds--;
     }
+    return;
 }
 
 game();
