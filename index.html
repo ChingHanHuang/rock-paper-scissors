@@ -3,9 +3,35 @@
     <head>
         <meta charset="utf-8">
         <title>Rock Pepper Sciccors</title>
-        <script type="text/javascript" src="script.js"></script>
+        <link type="text/css" rel="stylesheet" href="style.css">
     </head>
     <body>
-
+        <div>
+            <h1>Rock, Paper, Scissors</h1>
+        </div>
+        <div>
+            <h2>First to 5 points wins!</h2>
+            <div class="score-board">
+                <p id="msg">Ready!</p>
+                <p id="score">0:0</p>
+            </div>
+            <div class="container">
+                <div>
+                    <h3>Choose your weapon</h3>
+                    <div class="player-choice">
+                        <input class="rock" type="image" src="img/rock.png" onclick="game('rock')">
+                        <input class="paper" type="image" src="img/paper.png" onclick="game('paper')">
+                        <input class="scissors" type="image" src="img/scissors.png" onclick="game('scissors')">
+                    </div>
+                </div>
+                <div>
+                    <h3>Computer's weapon</h3>
+                    <div>
+                        <input id="computerWeapon" type="image">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
     </body>
 </html>
