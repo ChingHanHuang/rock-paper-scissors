@@ -23,29 +23,29 @@ function playRound(playerWeapon, computerWeapon) {
     else if(playerWeapon === "rock") {
         if(computerWeapon === "scissors") {
             myScore++;
-            text = "You Win! Rock beats Scissors.";
-            return;
+            text = "Yes! Rock beats Scissors.";
+        } else {
+            computerScore++;
+            text = "On no! Paper beats Rock.";
         }
-        computerScore++;
-        text = "You Lose! Paper beats Rock.";
     }
     else if(playerWeapon === "paper") {
         if(computerWeapon === "rock") {
             myScore++;
-            text = "You Win! Paper beats Rock.";
-            return;
+            text = "Yes! Paper beats Rock.";
+        } else {
+            computerScore++;
+            text = "On no! Scissors beats Paper.";
         }
-        computerScore++;
-        text = "You Lose! Scissors beats Paper.";
     }
     else {
         if(computerWeapon === "paper") {
             myScore++;
-            text = "You Win! Scissors beats Paper.";
-            return;
+            text = "Yes! Scissors beats Paper.";
+        } else {
+            computerScore++;
+            text = "On no! Rock beats Scissors.";
         }
-        computerScore++;
-        text = "You Lose! Rock beats Scissors.";
     }
     document.getElementById("msg").innerText = text;
 }
@@ -56,8 +56,8 @@ function updateScore() {
 
 function checkGameOver() {
     if (myScore === 5){
-        console.log("You win!");
+        document.getElementById("msg").innerText = "You win!";
     } else if (computerScore === 5) {
-        console.log("You Lose...");
+        document.getElementById("msg").innerText = "You Lose...";
     }
 }
