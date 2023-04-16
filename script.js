@@ -18,6 +18,13 @@ function startGame(playerWeapon) {
     playRound(playerWeapon, computerSelection);
     updateWeapon(computerSelection);
     updateScore();
+
+    if (isGameOver()) {
+        setTimeout(() => {
+            showGameOverMsg(); 
+            resetGame();
+        }, 100); 
+    }
 }
 
 function getRandomWeapon() {
@@ -87,4 +94,13 @@ function showGameOverMsg() {
         alert(`You win! Play again!`);
     else
         alert(`You Lose... Play again!`);
+}
+
+function resetGame() {
+    msg.innerText = "Ready ?";
+    myScore = 0;
+    computerScore = 0;
+    updateScore();
+
+    computerWeapon.innerHTML = "&#x3F";
 }
