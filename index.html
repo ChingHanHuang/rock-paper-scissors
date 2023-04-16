@@ -4,34 +4,52 @@
         <meta charset="utf-8">
         <title>Rock Pepper Sciccors</title>
         <link type="text/css" rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
-        <div>
+        <header>
             <h1>Rock, Paper, Scissors</h1>
-        </div>
-        <div>
+        </header>
+        <main>
             <h2>First to 5 points wins!</h2>
             <div class="score-board">
-                <p id="msg">Ready!</p>
-                <p id="score">0:0</p>
+                <p id="msg">Ready ?</p>
+                <p id="score">0 : 0</p>
             </div>
             <div class="container">
                 <div>
                     <h3>Choose your weapon</h3>
                     <div class="player-choice">
-                        <input class="rock" type="image" src="img/rock.png" onclick="game('rock')">
-                        <input class="paper" type="image" src="img/paper.png" onclick="game('paper')">
-                        <input class="scissors" type="image" src="img/scissors.png" onclick="game('scissors')">
+                        <button class="btn btn-square" id="rockBtn">
+                            <div class="sign">&#9994</div>
+                        </button>
+                        <button class="btn btn-square" id="paperBtn">
+                            <div class="sign">&#9995</div>
+                        </button>
+                        <button class="btn btn-square" id="scissorsBtn">
+                            <div class="sign">&#9996</div>
+                        </button>
                     </div>
                 </div>
                 <div>
                     <h3>Computer's weapon</h3>
                     <div>
-                        <input id="computerWeapon" type="image">
+                        <div id="computerWeapon">&#x3F</div>
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
+        <footer>
+            <p id="copyright">
+                Copyright <span>&copy</span> 
+                <script>document.write(new Date().getFullYear())</script>
+                Ching Han
+            </p> 
+            <a href="https://github.com/ChingHanHuang" target="_blank">
+                <i class="fa fa-github"></i>
+            </a>
+        </footer>
+
         <script type="text/javascript" src="script.js"></script>
     </body>
 </html>

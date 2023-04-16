@@ -1,18 +1,28 @@
-const choices = ["rock", "paper", "scissors"];
+const weapons = ["rock", "paper", "scissors"];
 let myScore = 0;
 let computerScore = 0;
 
-function game(playerWeapon) {
-    playRound(playerWeapon, getComputerWeapon());
+const rockBtn = document.getElementById("rockBtn");
+const paperBtn = document.getElementById("paperBtn");
+const scissorsBtn = document.getElementById("scissorsBtn");
+const computerWeapon = document.getElementById("computerWeapon");
+const msg = document.getElementById("msg");
+const score = document.getElementById("score");
+
+rockBtn.addEventListener("click", () => startGame("rock"));
+paperBtn.addEventListener("click", () => startGame("paper"));
+scissorsBtn.addEventListener("click", () => startGame("scissors"));
+
+function startGame(playerWeapon) {
+    const computerSelection = getRandomWeapon();
+    playRound(playerWeapon, computerSelection);
+    updateWeapon(computerSelection);
     updateScore();
-    checkGameOver();
 }
 
-function getComputerWeapon() {
-    let weapon = choices[Math.floor(Math.random() * choices.length)];
-    let computerWeapon = document.getElementById("computerWeapon");
-    computerWeapon.src = `img/${weapon}.png`;
-    return weapon;
+function getRandomWeapon() {
+    let randomNum = Math.floor(Math.random() * weapons.length);
+    return weapons[randomNum];
 }
 
 function playRound(playerWeapon, computerWeapon) {
@@ -47,17 +57,34 @@ function playRound(playerWeapon, computerWeapon) {
             text = "On no! Rock beats Scissors.";
         }
     }
-    document.getElementById("msg").innerText = text;
+    msg.innerText = text;
+}
+
+function updateWeapon(computerSelection) {
+    switch(computerSelection) {
+        case "rock":
+            computerWeapon.innerHTML = "&#9994";
+            break;
+        case "paper":
+            computerWeapon.innerHTML = "&#9995";
+            break;
+        case "scissors":
+            computerWeapon.innerHTML = "&#9996";
+            break;
+    }
 }
 
 function updateScore() {
-    document.getElementById("score").innerText = `${myScore} : ${computerScore}`;
+    score.innerText = `${myScore} : ${computerScore}`;
 }
 
-function checkGameOver() {
-    if (myScore === 5){
-        document.getElementById("msg").innerText = "You win!";
-    } else if (computerScore === 5) {
-        document.getElementById("msg").innerText = "You Lose...";
-    }
+function isGameOver() {
+    return myScore === 5 || computerScore === 5;
+}
+
+function showGameOverMsg() {
+    if (myScore === 5)
+        alert(`You win! Play again!`);
+    else
+        alert(`You Lose... Play again!`);
 }

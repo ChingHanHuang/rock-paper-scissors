@@ -1,9 +1,90 @@
-h1, h2, h3, .score-board {
-    text-align: center;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
     font-family: sans-serif;
+    line-height: 1.6;
+    margin-bottom: 100px;
+    background-color: #ffeed6;
+}
+
+header {
+    background-color: #ffc5ec;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0px;
+}
+
+main {
+    margin-top: 20px;
+}
+
+.title {
+    background-color: lightskyblue;
+}
+
+h2, h3, .score-board {
+    text-align: center;
+}
+
+h1, #msg, #score, .container {
+    margin-top: 30px;
+}
+
+#score {
+    font-size: 30px;
 }
 
 .container {
     display: flex;
     justify-content: space-evenly;
+}
+
+.btn {
+    border: none;
+    padding: 40px;
+    margin: 10px 15px;
+    font-size: 100px;
+    cursor: pointer;
+    background-color: #d2efff;
+}
+
+.btn:hover {
+    background-color: rgb(161, 161, 232);
+}
+
+.btn:active {
+    background-color: rgb(161, 161, 232);
+    transform: translateY(4px);
+}
+
+#computerWeapon {
+    padding: 40px;
+    margin: 10px 15px;
+    font-size: 100px;
+}
+
+#copyright {
+    margin-right: 5px;
+}
+
+footer {
+    background-color: #e8eaff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
